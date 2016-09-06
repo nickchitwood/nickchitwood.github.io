@@ -37,8 +37,8 @@ avatar_img_path: "https://avatars0.githubusercontent.com/u/9169546"
 
 
 front_img: yes
-front_img_path: "imgs/sandsmall.jpeg"
-#front_img_path: "https://external.url/image.jpg"
+#front_img_path: "imgs/sandsmall.jpg"
+front_img_path: "https://github.com/nickchitwood/nickchitwood.github.io/blob/master/imgs/sandsmall.jpg"
 
 
 favicon_img: yes

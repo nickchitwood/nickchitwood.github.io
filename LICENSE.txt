@@ -1,6 +1,10 @@
 The MIT License (MIT)
 
+<<<<<<< HEAD:LICENSE.txt
 Copyright (c) 2014 Tim O'Brien (t413)
+=======
+Copyright (c) 2016 DashingCode
+>>>>>>> parent of 850597e... Update for Apple repair:LICENSE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

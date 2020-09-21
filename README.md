@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Fancy jekyll powered single page site
 ======================
 
@@ -208,23 +207,3 @@ So you've got a copy running and there's some new update? Let's update!
     1. `git merge singlepage/publish`
 4. You can alternatively update using rebase. This *rewrites history* (**bad**), but it is cleaner.
     1. `git rebase singlepage/publish`
-=======
-# front cover jekyll theme
-
-## Why choose this jekyll theme for your front page?
-* You don't have to modify any HTML, everything can be modified in config.yml.
-* Very lightweight. No Javascript, No Bootstrap etc..
-* MIT licensed.
-
-
-## See it in action
-<a href="https://dashingcode.github.io/front-cover/">Live demo page</a>
-
-## Credits
-The background image that was used as an example comes from Tom Hall.
-You can find it on <a href="https://flic.kr/p/pqEPBb">Flickr</a>.
-It's licensed under Creative-Commons.
-
-This theme makes use of the amazing <a href="http://fontawesome.io/">Font Awesome</a> icons.
-
->>>>>>> parent of 850597e... Update for Apple repair

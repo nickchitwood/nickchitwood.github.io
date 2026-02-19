@@ -1,0 +1,457 @@
+/* ============================================
+   Nicholas R. Chitwood — Personal Site
+   ============================================ */
+
+:root {
+    --color-bg: #0f1419;
+    --color-bg-alt: #161b22;
+    --color-surface: #1c2128;
+    --color-border: #2d333b;
+    --color-text: #cdd9e5;
+    --color-text-muted: #8b949e;
+    --color-heading: #f0f3f6;
+    --color-accent: #58a6ff;
+    --color-accent-hover: #79c0ff;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 72px;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ---- Navigation ---- */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 16px 24px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.nav-scrolled {
+    background-color: rgba(15, 20, 25, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 var(--color-border);
+}
+
+.nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-heading);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--color-heading);
+}
+
+/* ---- Hero ---- */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 80px;
+}
+
+.hero-content {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 56px;
+}
+
+.hero-photo {
+    flex-shrink: 0;
+}
+
+.headshot {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-border);
+    background-color: var(--color-surface);
+}
+
+.hero-text h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.hero-title {
+    font-size: 1.05rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.hero-org {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+}
+
+.hero-summary {
+    font-size: 1.05rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.social-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* ---- Sections ---- */
+
+.section {
+    padding: 80px 0;
+}
+
+.section-alt {
+    background-color: var(--color-bg-alt);
+}
+
+.section-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-bottom: 40px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-border);
+}
+
+/* ---- About ---- */
+
+.about-content p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---- Work Grid ---- */
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 24px;
+}
+
+.work-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.work-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.work-screenshot {
+    aspect-ratio: 16 / 10;
+    background-color: var(--color-bg);
+    overflow: hidden;
+}
+
+.work-screenshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.work-info {
+    padding: 20px;
+}
+
+.work-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.work-info p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.work-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    background-color: rgba(88, 166, 255, 0.1);
+    padding: 3px 10px;
+    border-radius: 12px;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Presentations ---- */
+
+.presentations-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.presentation {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.presentation:last-child {
+    border-bottom: none;
+}
+
+.presentation-meta {
+    flex-shrink: 0;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.presentation-event {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-heading);
+}
+
+.presentation-date {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.presentation-title {
+    font-size: 1rem;
+    color: var(--color-text);
+    font-style: italic;
+}
+
+/* ---- CV ---- */
+
+.cv-section {
+    text-align: center;
+}
+
+.cv-text {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+}
+
+.cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background-color: transparent;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.cv-button:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+}
+
+.cv-button svg {
+    flex-shrink: 0;
+}
+
+/* ---- Footer ---- */
+
+.footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-heading);
+    margin-bottom: 4px;
+}
+
+.footer-detail {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.footer-detail a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-detail a:hover {
+    color: var(--color-accent);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 24px 60px;
+        min-height: auto;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 32px;
+    }
+
+    .headshot {
+        width: 140px;
+        height: 140px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.75rem;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .presentation {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .presentation-meta {
+        width: auto;
+        flex-direction: row;
+        gap: 12px;
+        align-items: baseline;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 0.95rem;
+    }
+
+    .nav-name {
+        font-size: 0.875rem;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+}

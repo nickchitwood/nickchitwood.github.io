@@ -8,7 +8,7 @@
     <link rel="icon" href="imgs/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -28,24 +28,25 @@
 
     <!-- Hero -->
     <header class="hero" id="hero">
+        <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="hero-photo">
-                <img src="assets/headshot.jpg" alt="Nicholas R. Chitwood" class="headshot">
+                <img src="assets/headshot.jpg" alt="Nicholas R. Chitwood" class="headshot" loading="eager">
             </div>
             <div class="hero-text">
                 <h1>Nicholas R. Chitwood, Ed.D.</h1>
-                <p class="hero-title">Administrator, Assessment, Accountability &amp; Continuous Improvement</p>
+                <p class="hero-role">Administrator, Assessment, Accountability &amp; Continuous Improvement</p>
                 <p class="hero-org">Riverside County Office of Education</p>
-                <p class="hero-summary">I lead data infrastructure and accountability systems serving 420,000+ students across 23 school districts in Riverside County, California.</p>
+                <p class="hero-tagline">420,000 students. 23 districts. One data team.</p>
                 <div class="social-links">
                     <a href="https://github.com/nickchitwood" aria-label="GitHub" class="social-link">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                     </a>
                     <a href="https://linkedin.com/in/nickchitwood" aria-label="LinkedIn" class="social-link">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </a>
                     <a href="mailto:nicholaschitwood@gmail.com" aria-label="Email" class="social-link">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
                     </a>
                 </div>
             </div>
@@ -53,9 +54,9 @@
     </header>
 
     <!-- About -->
-    <section class="section" id="about">
+    <section class="section section-dark" id="about">
         <div class="container">
-            <h2 class="section-heading">About</h2>
+            <h2 class="section-heading"><span class="heading-accent"></span>About</h2>
             <div class="about-content">
                 <p>I came to education data through an unlikely path. I started my career as a band director &mdash; years in the classroom before moving into educational compliance and eventually data administration. That transition wasn&rsquo;t a pivot so much as following the thread: the same part of my brain that tried to force a bunch of high schoolers to stand in neatly spaced straight lines turned out to be pretty good at optimizing data systems. I pursued an Ed.D. in Education Leadership and Policy at UCLA, with additional doctoral coursework at UC Riverside in school finance, policy analysis, and advanced statistics.</p>
                 <p>Today I work at the Riverside County Office of Education, where I manage data infrastructure and accountability reporting across 23 school districts serving about 420,000 students. I build automated accountability reports that are available to every LEA in California, maintain public Tableau dashboards that inform district decision-making, and navigate data sharing partnerships with other state agencies and higher education institutions, such as the CSU system and the State Treasurer&rsquo;s Office through CalKIDS. The stack runs on Python, R, SQL, Kubernetes, Airflow, dbt, Tableau, and Shiny &mdash; but the technology is always in service of the question, not the other way around.</p>
@@ -65,13 +66,13 @@
     </section>
 
     <!-- Selected Work -->
-    <section class="section section-alt" id="work">
+    <section class="section section-light" id="work">
         <div class="container">
-            <h2 class="section-heading">Selected Work</h2>
+            <h2 class="section-heading"><span class="heading-accent"></span>Selected Work</h2>
             <div class="work-grid">
                 <a href="https://public.tableau.com/app/profile/rcoe/viz/ParticipationRate_17127781575170/ParticipationRate2025byStudentGroup" class="work-card" target="_blank" rel="noopener noreferrer">
                     <div class="work-screenshot">
-                        <img src="assets/work-participation.png" alt="CAASPP/ELPAC Participation Rate Risk Report screenshot">
+                        <img src="assets/work-participation.png" alt="CAASPP/ELPAC Participation Rate Risk Report screenshot" loading="lazy">
                     </div>
                     <div class="work-info">
                         <h3>CAASPP/ELPAC Participation Rate Risk Report</h3>
@@ -81,7 +82,7 @@
                 </a>
                 <a href="https://public.tableau.com/app/profile/rcoe/viz/CalkidsDashboard/CalKIDSResultsbyDistrict-Table" class="work-card" target="_blank" rel="noopener noreferrer">
                     <div class="work-screenshot">
-                        <img src="assets/work-calkids.png" alt="CalKIDS Results by District screenshot">
+                        <img src="assets/work-calkids.png" alt="CalKIDS Results by District screenshot" loading="lazy">
                     </div>
                     <div class="work-info">
                         <h3>CalKIDS Results by District</h3>
@@ -91,7 +92,7 @@
                 </a>
                 <a href="https://public.tableau.com/app/profile/rcoe/viz/CCIData/DistrictCCIbyYearbyStudentGroup" class="work-card" target="_blank" rel="noopener noreferrer">
                     <div class="work-screenshot">
-                        <img src="assets/work-cci.png" alt="CCI Data dashboard screenshot">
+                        <img src="assets/work-cci.png" alt="CCI Data dashboard screenshot" loading="lazy">
                     </div>
                     <div class="work-info">
                         <h3>CCI Data: District CCI by Year</h3>
@@ -101,7 +102,7 @@
                 </a>
                 <a href="https://public.tableau.com/app/profile/rcoe/viz/LREBG/LREBG-ELA" class="work-card" target="_blank" rel="noopener noreferrer">
                     <div class="work-screenshot">
-                        <img src="assets/work-lrebg.png" alt="LREBG Needs Assessment Dashboard screenshot">
+                        <img src="assets/work-lrebg.png" alt="LREBG Needs Assessment Dashboard screenshot" loading="lazy">
                     </div>
                     <div class="work-info">
                         <h3>LREBG Needs Assessment Dashboard</h3>
@@ -111,7 +112,7 @@
                 </a>
                 <a href="https://riverside.shinyapps.io/CSI-ATSI-2025/" class="work-card" target="_blank" rel="noopener noreferrer">
                     <div class="work-screenshot">
-                        <img src="assets/work-csi.png" alt="CSI-ATSI School Identification Report screenshot">
+                        <img src="assets/work-csi.png" alt="CSI-ATSI School Identification Report screenshot" loading="lazy">
                     </div>
                     <div class="work-info">
                         <h3>CSI-ATSI School Identification Report</h3>
@@ -124,60 +125,50 @@
     </section>
 
     <!-- Presentations -->
-    <section class="section" id="presentations">
+    <section class="section section-dark" id="presentations">
         <div class="container">
-            <h2 class="section-heading">Recent Presentations</h2>
-            <div class="presentations-list">
-                <div class="presentation">
-                    <div class="presentation-meta">
-                        <span class="presentation-event">CERA 2025</span>
-                        <span class="presentation-date">Nov 2025 &middot; Riverside</span>
-                    </div>
-                    <p class="presentation-title">&ldquo;Trust, Transfer, Transform&rdquo;</p>
-                </div>
-                <div class="presentation">
-                    <div class="presentation-meta">
-                        <span class="presentation-event">CERA 2025</span>
-                        <span class="presentation-date">Nov 2025 &middot; Riverside</span>
-                    </div>
-                    <p class="presentation-title">&ldquo;From Shiny to Strategic&rdquo;</p>
-                </div>
-                <div class="presentation">
-                    <div class="presentation-meta">
-                        <span class="presentation-event">CISC 2025</span>
-                        <span class="presentation-date">Feb 2025 &middot; Anaheim</span>
-                    </div>
-                    <p class="presentation-title">&ldquo;Unlocking Student Data to Close Equity Gaps&rdquo;</p>
-                </div>
-                <div class="presentation">
-                    <div class="presentation-meta">
-                        <span class="presentation-event">PyCon 2024</span>
-                        <span class="presentation-date">May 2024 &middot; Pittsburgh</span>
-                    </div>
-                    <p class="presentation-title">&ldquo;LocalGPT for Student Voice&rdquo;</p>
-                </div>
-                <div class="presentation">
-                    <div class="presentation-meta">
-                        <span class="presentation-event">CISC 2024</span>
-                        <span class="presentation-date">Feb 2024 &middot; Monterey</span>
-                    </div>
-                    <p class="presentation-title">&ldquo;Sharing is Caring&rdquo;</p>
-                </div>
-                <div class="presentation">
-                    <div class="presentation-meta">
-                        <span class="presentation-event">CERA 2022</span>
-                        <span class="presentation-date">Sep 2022 &middot; Anaheim</span>
-                    </div>
-                    <p class="presentation-title">&ldquo;Diagnosing System Inequities&rdquo;</p>
-                </div>
-            </div>
+            <h2 class="section-heading"><span class="heading-accent"></span>Recent Presentations</h2>
+            <table class="presentations-table">
+                <tbody>
+                    <tr>
+                        <td class="pres-event">CERA 2025</td>
+                        <td class="pres-title">&ldquo;Trust, Transfer, Transform&rdquo;</td>
+                        <td class="pres-location">Nov 2025 &middot; Riverside</td>
+                    </tr>
+                    <tr>
+                        <td class="pres-event">CERA 2025</td>
+                        <td class="pres-title">&ldquo;From Shiny to Strategic&rdquo;</td>
+                        <td class="pres-location">Nov 2025 &middot; Riverside</td>
+                    </tr>
+                    <tr>
+                        <td class="pres-event">CISC 2025</td>
+                        <td class="pres-title">&ldquo;Unlocking Student Data to Close Equity Gaps&rdquo;</td>
+                        <td class="pres-location">Feb 2025 &middot; Anaheim</td>
+                    </tr>
+                    <tr>
+                        <td class="pres-event">PyCon 2024</td>
+                        <td class="pres-title">&ldquo;LocalGPT for Student Voice&rdquo;</td>
+                        <td class="pres-location">May 2024 &middot; Pittsburgh</td>
+                    </tr>
+                    <tr>
+                        <td class="pres-event">CISC 2024</td>
+                        <td class="pres-title">&ldquo;Sharing is Caring&rdquo;</td>
+                        <td class="pres-location">Feb 2024 &middot; Monterey</td>
+                    </tr>
+                    <tr>
+                        <td class="pres-event">CERA 2022</td>
+                        <td class="pres-title">&ldquo;Diagnosing System Inequities&rdquo;</td>
+                        <td class="pres-location">Sep 2022 &middot; Anaheim</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
     <!-- CV Download -->
-    <section class="section section-alt" id="cv">
+    <section class="section section-light" id="cv">
         <div class="container cv-section">
-            <h2 class="section-heading">Curriculum Vitae</h2>
+            <h2 class="section-heading"><span class="heading-accent"></span>Curriculum Vitae</h2>
             <p class="cv-text">Full CV available for download.</p>
             <a href="assets/cv.pdf" class="cv-button" download>
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -216,6 +207,20 @@
                 }
             });
         });
+
+        // Fade-in sections on scroll
+        const sections = document.querySelectorAll('.section');
+        const sectionObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            { threshold: 0.08 }
+        );
+        sections.forEach(s => sectionObserver.observe(s));
     </script>
 
 </body>

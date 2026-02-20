@@ -232,7 +232,7 @@ section:last-of-type {
 /* ---- About ---- */
 
 .about-body {
-    max-width: 75ch;
+    max-width: 780px;
 }
 
 .about-body p {

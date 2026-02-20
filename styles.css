@@ -276,7 +276,7 @@ section:last-of-type {
 }
 
 .work-screenshot {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     background: var(--surface);
     overflow: hidden;
     border: 1px solid var(--border);

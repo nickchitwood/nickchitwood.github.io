@@ -318,7 +318,7 @@ section:last-of-type {
 
 .timeline {
     position: relative;
-    padding-left: 32px;
+    padding-left: 36px;
 }
 
 /* Vertical line */
@@ -344,7 +344,7 @@ section:last-of-type {
 /* Dot node */
 .timeline-node {
     position: absolute;
-    left: -32px;
+    left: -36px;
     top: 6px;
     width: 15px;
     height: 15px;
@@ -357,7 +357,7 @@ section:last-of-type {
 .timeline-content {
     padding: 16px 20px;
     background: var(--surface);
-    border-left: 2px solid var(--border);
+    border-left: 2px solid var(--accent);
 }
 
 .pres-head {

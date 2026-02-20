@@ -231,6 +231,14 @@
         );
         observer.observe(hero);
 
+        // Parallax on hero dot grid
+        const heroBg = document.querySelector('.hero');
+        window.addEventListener('scroll', () => {
+            if (heroBg) {
+                heroBg.style.setProperty('--scroll-y', window.scrollY * 0.5 + 'px');
+            }
+        }, { passive: true });
+
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 e.preventDefault();

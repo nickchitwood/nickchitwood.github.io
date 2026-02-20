@@ -314,53 +314,115 @@ section:last-of-type {
     color: var(--accent);
 }
 
-/* ---- Presentations ---- */
+/* ---- Presentations (timeline) ---- */
 
-.pres-list {
-    display: flex;
-    flex-direction: column;
+.timeline {
+    position: relative;
+    padding-left: 32px;
 }
 
-.pres-entry {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border-dim);
+/* Vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--border);
 }
 
-.pres-entry:last-child {
-    border-bottom: none;
+.timeline-entry {
+    position: relative;
+    padding-bottom: 32px;
+}
+
+.timeline-entry:last-child {
+    padding-bottom: 0;
+}
+
+/* Dot node */
+.timeline-node {
+    position: absolute;
+    left: -32px;
+    top: 6px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    z-index: 1;
+}
+
+.timeline-content {
+    padding: 16px 20px;
+    background: var(--surface);
+    border-left: 2px solid var(--border);
 }
 
 .pres-head {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: baseline;
-    margin-bottom: 6px;
+    gap: 8px 12px;
+    margin-bottom: 8px;
 }
 
 .pres-conf {
     font-weight: 600;
     color: var(--heading);
     font-size: 0.82rem;
+    letter-spacing: 0.02em;
 }
 
 .pres-where {
     color: var(--text-dim);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
+}
+
+.pres-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 2px 8px;
+    margin-left: auto;
+}
+
+.pres-badge.badge-alt {
+    color: #d4a053;
+    background: rgba(212, 160, 83, 0.12);
 }
 
 .pres-title {
     font-family: var(--serif);
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--text);
-    line-height: 1.4;
-    margin-bottom: 4px;
+    font-size: 1.05rem;
+    color: var(--heading);
+    line-height: 1.35;
+    margin-bottom: 6px;
 }
 
 .pres-desc {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     color: var(--text-dim);
     line-height: 1.5;
+}
+
+.pres-more {
+    margin-top: 28px;
+    font-size: 0.85rem;
+}
+
+.pres-more a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.pres-more a:hover {
+    color: var(--heading);
 }
 
 /* ---- CV ---- */
@@ -458,10 +520,11 @@ section:last-of-type {
         max-width: 280px;
     }
 
-    .pres-head {
-        flex-direction: column;
-        gap: 2px;
-    }
+    .timeline { padding-left: 24px; }
+    .timeline-node { left: -24px; width: 13px; height: 13px; }
+    .timeline::before { left: 5px; }
+    .timeline-content { padding: 14px 16px; }
+    .pres-badge { margin-left: 0; }
 
     .footer-inner {
         flex-direction: column;

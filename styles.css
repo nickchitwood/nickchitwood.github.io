@@ -316,48 +316,51 @@ section:last-of-type {
 
 /* ---- Presentations ---- */
 
-.pres-table {
-    width: 100%;
-    border-collapse: collapse;
+.pres-list {
+    display: flex;
+    flex-direction: column;
 }
 
-.pres-table tr {
+.pres-entry {
+    padding: 20px 0;
     border-bottom: 1px solid var(--border-dim);
 }
 
-.pres-table tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.015);
-}
-
-.pres-table tr:last-child {
+.pres-entry:last-child {
     border-bottom: none;
 }
 
-.pres-table td {
-    padding: 13px 0;
-    vertical-align: baseline;
-    font-size: 0.88rem;
+.pres-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
 }
 
 .pres-conf {
     font-weight: 600;
     color: var(--heading);
-    white-space: nowrap;
-    width: 110px;
     font-size: 0.82rem;
-}
-
-.pres-talk {
-    color: var(--text);
-    font-style: italic;
-    padding: 0 24px;
 }
 
 .pres-where {
     color: var(--text-dim);
-    font-size: 0.8rem;
-    white-space: nowrap;
-    text-align: right;
+    font-size: 0.78rem;
+}
+
+.pres-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 4px;
+}
+
+.pres-desc {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.5;
 }
 
 /* ---- CV ---- */
@@ -455,10 +458,10 @@ section:last-of-type {
         max-width: 280px;
     }
 
-    .pres-table td { display: block; padding: 2px 0; text-align: left; }
-    .pres-table tr { display: block; padding: 10px 0; }
-    .pres-talk { padding: 0; }
-    .pres-conf { width: auto; }
+    .pres-head {
+        flex-direction: column;
+        gap: 2px;
+    }
 
     .footer-inner {
         flex-direction: column;

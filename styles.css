@@ -320,8 +320,8 @@ section:last-of-type {
 /* ---- Featured Video ---- */
 
 .featured-video {
-    margin-bottom: 40px;
-    padding-bottom: 32px;
+    margin-bottom: 48px;
+    padding-bottom: 40px;
     border-bottom: 1px solid var(--border);
 }
 
@@ -329,13 +329,13 @@ section:last-of-type {
     font-family: var(--serif);
     font-size: 1.1rem;
     color: var(--heading);
-    margin-bottom: 6px;
+    margin-bottom: 12px;
 }
 
 .featured-video-desc {
     font-size: 0.85rem;
     color: var(--text-dim);
-    margin-bottom: 20px;
+    margin-bottom: 28px;
 }
 
 .video-container {

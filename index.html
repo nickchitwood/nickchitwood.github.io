@@ -354,16 +354,7 @@
 
   /* ── CV section ────────────────────────────────────────── */
   .cv-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 28px;
-    align-items: end;
-  }
-  .cv-body { max-width: 560px; }
-  .cv-body p {
-    margin: 0;
-    font-size: 1rem; color: var(--muted);
-    line-height: 1.6;
+    display: flex;
   }
   .cv-button {
     display: inline-flex; align-items: center; gap: 10px;
@@ -404,7 +395,6 @@
     .talk { grid-template-columns: 1fr; gap: 8px; padding: 18px 0; }
     .talk-role { justify-self: start; margin-top: 2px; }
     .talk-date { padding-top: 0; }
-    .cv-row { grid-template-columns: 1fr; align-items: start; gap: 18px; }
   }
   @media (max-width: 520px) {
     :root { --gutter: 20px; }

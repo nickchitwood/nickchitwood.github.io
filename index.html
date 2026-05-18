@@ -1,259 +1,682 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicholas R. Chitwood, Ed.D.</title>
-    <meta name="description" content="Data infrastructure and accountability systems leader serving 420,000+ students across 23 school districts in Riverside County, California.">
-    <link rel="icon" href="imgs/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nicholas R. Chitwood, Ed.D.</title>
+<meta name="description" content="Education leadership, data infrastructure, and accountability systems for California public education." />
+<link rel="icon" href="imgs/favicon.ico" />
+<link rel="canonical" href="https://www.nickchitwood.com/" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+
+<style>
+  /* ─────────────────────────────────────────────────────────
+     Atelier — applied to nickchitwood.com
+     One accent (forest), cream paper, Inter Tight throughout.
+     ───────────────────────────────────────────────────────── */
+  :root {
+    --paper:        #faf6ec;
+    --bg:           #f5f1e6;
+    --sidebar:      #efe9d8;
+    --text:         #11140f;
+    --muted:        #5f6358;
+    --rule:         #11140f;
+    --rule-soft:    #c2bea9;
+    --accent:       #1f4d2a;
+    --accent-soft:  rgba(31, 77, 42, 0.10);
+
+    --content-w: 1180px;
+    --gutter: 32px;
+    --serif: 'Inter Tight', system-ui, sans-serif; /* "serif" var name kept as familiar slot; value is Inter Tight */
+    --sans:  'Inter Tight', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 68px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--text);
+    font-family: var(--sans);
+    font-feature-settings: 'tnum' 1, 'ss03' 1, 'cv11' 1;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: var(--accent); color: var(--paper); }
+
+  /* ── shared utility tokens ─────────────────────────────── */
+  .container { width: 100%; max-width: var(--content-w); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+  .num { font-variant-numeric: tabular-nums; }
+  .period { color: var(--accent); }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .marker { display: inline-block; width: 7px; height: 7px; background: var(--accent); margin-right: 10px; vertical-align: 0.18em; flex-shrink: 0; }
+
+  /* ── nav ───────────────────────────────────────────────── */
+  /* No glass blur. A hairline bottom rule appears once scrolled. */
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 60px;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    transition: background-color .2s ease, border-color .2s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.is-scrolled {
+    background: var(--paper);
+    border-bottom-color: var(--rule-soft);
+  }
+  .nav-inner {
+    width: 100%; max-width: var(--content-w);
+    margin: 0 auto; padding: 0 var(--gutter);
+    display: flex; align-items: baseline; justify-content: space-between;
+  }
+  .nav-mark {
+    font-size: 17px; font-weight: 600; letter-spacing: -0.018em;
+    color: var(--text); text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav-mark .period { font-weight: 700; }
+  .nav-links { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a {
+    font-size: 13px; font-weight: 500; color: var(--text);
+    text-decoration: none; letter-spacing: -0.002em;
+    border-bottom: 1px solid transparent; padding-bottom: 2px;
+    transition: border-color .15s, color .15s;
+  }
+  .nav-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── hero ──────────────────────────────────────────────── */
+  .hero {
+    padding: 124px 0 64px;
+    border-bottom: 2px solid var(--rule);
+  }
+  .hero-stack { display: flex; flex-direction: column; gap: 22px; }
+  .hero-eyebrow { margin: 0; color: var(--accent); font-weight: 600; }
+  .hero-name {
+    margin: 0;
+    font-size: clamp(2.4rem, 8.4vw, 6.4rem);
+    font-weight: 600;
+    letter-spacing: -0.036em;
+    line-height: 0.94;
+  }
+  .hero-credential {
+    margin: 0;
+    font-size: clamp(1.05rem, 1.6vw, 1.45rem);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--muted);
+    max-width: 760px;
+  }
+  .hero-rule { width: 100%; height: 1px; background: var(--rule); border: 0; margin: 12px 0 0; }
+  .hero-row {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 40px;
+    align-items: end;
+  }
+  .headshot {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: var(--sidebar);
+  }
+  .hero-meta {
+    display: flex; flex-direction: column;
+    gap: 14px;
+    padding-bottom: 4px;
+  }
+  .hero-meta-role {
+    margin: 0;
+    font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+    font-weight: 600;
+    letter-spacing: -0.008em;
+    line-height: 1.4;
+  }
+  .hero-meta-org { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+  .social { display: flex; gap: 14px; margin-top: 6px; }
+  .social a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px;
+    color: var(--text);
+    border: 1px solid var(--rule);
+    text-decoration: none;
+    transition: color .15s, background .15s, border-color .15s;
+  }
+  .social a:hover { color: var(--paper); background: var(--accent); border-color: var(--accent); }
+  .social svg { width: 18px; height: 18px; }
+
+  /* ── section frame ─────────────────────────────────────── */
+  section {
+    padding: 64px 0 80px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  section.bg-alt { background: var(--bg); }
+  section:last-of-type { border-bottom: 2px solid var(--rule); }
+
+  .section-cap {
+    display: flex; align-items: baseline; gap: 18px;
+    margin-bottom: 36px;
+  }
+  .section-num {
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.010em;
+  }
+  .section-name {
+    margin: 0;
+    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -0.024em;
+    line-height: 1;
+  }
+
+  /* ── about ─────────────────────────────────────────────── */
+  .about-body {
+    max-width: 720px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .about-body p { margin: 0 0 1.1em; }
+  .about-body p:last-child { margin-bottom: 0; }
+  .about-body strong { font-weight: 600; }
+
+  /* ── work list ─────────────────────────────────────────── */
+  .work-list { display: flex; flex-direction: column; }
+  .work-item {
+    display: grid;
+    grid-template-columns: 240px 1fr auto;
+    gap: 28px;
+    align-items: start;
+    padding: 26px 0;
+    border-top: 1px solid var(--rule-soft);
+    text-decoration: none;
+    color: inherit;
+    transition: background .15s;
+  }
+  .work-item:last-child { border-bottom: 1px solid var(--rule-soft); }
+  .work-item:hover { background: var(--accent-soft); }
+  .work-item:hover .work-arrow { transform: translateX(4px); color: var(--accent); }
+  .work-item:hover .work-title { color: var(--accent); }
+
+  .work-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    background: var(--sidebar);
+    border: 1px solid var(--rule-soft);
+    display: block;
+  }
+  .work-text { display: flex; flex-direction: column; gap: 6px; padding-top: 2px; }
+  .work-tool {
+    font-size: 10.5px; font-weight: 600;
+    letter-spacing: 0.10em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .work-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    line-height: 1.2;
+    transition: color .15s;
+  }
+  .work-desc {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .work-arrow {
+    align-self: center;
+    color: var(--muted);
+    transition: transform .15s, color .15s;
+  }
+
+  /* ── presentations ─────────────────────────────────────── */
+  .featured {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .featured-head { display: flex; flex-direction: column; gap: 6px; }
+  .featured-eyebrow { color: var(--accent); font-weight: 600; }
+  .featured-title {
+    margin: 0;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    line-height: 1.2;
+  }
+  .featured-desc {
+    margin: 0; max-width: 720px;
+    font-size: 0.95rem; color: var(--muted);
+    line-height: 1.6;
+  }
+  .video-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--text);
+    border: 1px solid var(--rule);
+  }
+  .video-frame iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  .talks { display: flex; flex-direction: column; }
+  .talk {
+    display: grid;
+    grid-template-columns: 140px 1fr auto;
+    gap: 28px;
+    align-items: start;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .talk:last-child { border-bottom: 1px solid var(--rule-soft); }
+  .talk-date {
+    display: flex; flex-direction: column; gap: 2px;
+    padding-top: 4px;
+  }
+  .talk-conf {
+    font-size: 0.95rem; font-weight: 600;
+    letter-spacing: -0.012em;
+  }
+  .talk-where {
+    font-size: 0.78rem; color: var(--muted);
+    letter-spacing: 0;
+  }
+  .talk-body { display: flex; flex-direction: column; gap: 4px; }
+  .talk-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.014em;
+    line-height: 1.3;
+  }
+  .talk-title::before {
+    content: '';
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: var(--accent);
+    margin-right: 10px;
+    transform: translateY(-3px);
+  }
+  .talk-desc {
+    margin: 0;
+    font-size: 0.88rem; color: var(--muted);
+    line-height: 1.55;
+  }
+  .talk-role {
+    align-self: start;
+    padding: 3px 8px;
+    font-size: 10.5px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    white-space: nowrap;
+  }
+  .talks-foot {
+    margin-top: 24px;
+    font-size: 0.92rem;
+  }
+  .talks-foot a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+    transition: color .15s;
+  }
+  .talks-foot a:hover { color: var(--text); border-bottom-color: var(--text); }
+
+  /* ── CV section ────────────────────────────────────────── */
+  .cv-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: end;
+  }
+  .cv-body { max-width: 560px; }
+  .cv-body p {
+    margin: 0;
+    font-size: 1rem; color: var(--muted);
+    line-height: 1.6;
+  }
+  .cv-button {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 22px;
+    font-family: inherit; font-size: 0.95rem; font-weight: 600;
+    letter-spacing: -0.005em;
+    color: var(--paper); background: var(--accent);
+    text-decoration: none; border: 0;
+    transition: background .15s;
+  }
+  .cv-button:hover { background: var(--text); }
+  .cv-button svg { width: 16px; height: 16px; }
+
+  /* ── footer ────────────────────────────────────────────── */
+  .footer {
+    padding: 36px 0 48px;
+    background: var(--paper);
+  }
+  .footer-inner {
+    display: flex; flex-wrap: wrap;
+    justify-content: space-between; align-items: baseline;
+    gap: 14px 28px;
+    font-size: 0.9rem; color: var(--muted);
+  }
+  .footer-mark { font-size: 1rem; font-weight: 600; letter-spacing: -0.018em; color: var(--text); }
+  .footer a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
+  .footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── responsive ────────────────────────────────────────── */
+  @media (max-width: 820px) {
+    .hero { padding: 108px 0 56px; }
+    .hero-name { font-size: clamp(2.2rem, 9vw, 3.4rem); }
+    .hero-row { grid-template-columns: 1fr; gap: 24px; align-items: start; }
+    .headshot { max-width: 220px; }
+    .section-cap { gap: 12px; }
+    .work-item { grid-template-columns: 160px 1fr; }
+    .work-arrow { display: none; }
+    .talk { grid-template-columns: 1fr; gap: 8px; padding: 18px 0; }
+    .talk-role { justify-self: start; margin-top: 2px; }
+    .talk-date { padding-top: 0; }
+    .cv-row { grid-template-columns: 1fr; align-items: start; gap: 18px; }
+  }
+  @media (max-width: 520px) {
+    :root { --gutter: 20px; }
+    .nav { height: 54px; }
+    .hero { padding: 92px 0 56px; }
+    .work-item { grid-template-columns: 1fr; gap: 16px; }
+    .work-thumb { max-width: 320px; }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 12.5px; }
+  }
+</style>
 </head>
-<body>
+<body data-screen-label="01 Personal site · Atelier">
 
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="#" class="nav-name">Nicholas R. Chitwood</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#work">Work</a>
-                <a href="#presentations">Presentations</a>
-                <a href="#cv">CV</a>
-            </div>
-        </div>
-    </nav>
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">Nick Chitwood<span class="period">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#presentations">Presentations</a></li>
+      <li><a href="#cv">CV</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <header class="hero" id="hero">
-        <div class="hero-inner">
-            <img src="assets/headshot.jpg" alt="Nicholas R. Chitwood" class="headshot" loading="eager">
-            <div class="hero-text">
-                <h1>Nicholas R. Chitwood, Ed.D.</h1>
-                <p class="hero-title">Administrator, Assessment, Accountability &amp; Continuous Improvement</p>
-                <p class="hero-org">Riverside County Office of Education</p>
-                <div class="social-links">
-                    <a href="https://github.com/nickchitwood" aria-label="GitHub">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/nicholaschitwood" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    </a>
-                    <a href="mailto:nicholaschitwood@gmail.com" aria-label="Email">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
-                    </a>
-                </div>
-            </div>
+<header class="hero" id="top">
+  <div class="container hero-stack">
+    <p class="hero-eyebrow eyebrow">Riverside, California</p>
+    <h1 class="hero-name">Nicholas R. Chitwood<span class="period">.</span></h1>
+    <p class="hero-credential">Ed.D. — Education Leadership &amp; Data Infrastructure</p>
+    <hr class="hero-rule" />
+    <div class="hero-row">
+      <img class="headshot" src="assets/headshot-web.jpg" alt="Nicholas R. Chitwood" />
+      <div class="hero-meta">
+        <p class="hero-meta-role">Administrator, Assessment, Accountability &amp; Continuous Improvement</p>
+        <p class="hero-meta-org">Riverside County Office of Education</p>
+        <div class="social">
+          <a href="https://github.com/nickchitwood" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1.5-4-2.5-6-3M15 22v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 19 4.77 5.07 5.07 0 0 0 18.91 1S17.73.65 15 2.48a13.38 13.38 0 0 0-7 0C5.27.65 4.09 1 4.09 1A5.07 5.07 0 0 0 4 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 8 18.13V22"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/nicholaschitwood" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="mailto:nicholaschitwood@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16"/><path d="M2 6l10 7 10-7"/></svg>
+          </a>
         </div>
-    </header>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <section id="about">
-        <div class="section-header">
-            <h2>About</h2>
-        </div>
-        <div class="section-body about-body">
-            <p>I came to education data through an unlikely path. I started my career as a band director &mdash; years in the classroom before moving into educational compliance and eventually data administration. That transition wasn&rsquo;t a pivot so much as following the thread: the same part of my brain that tried to force a bunch of high schoolers to stand in neatly spaced straight lines turned out to be pretty good at optimizing data systems. I pursued an Ed.D. in Education Leadership and Policy at UCLA, with additional doctoral coursework at UC Riverside in school finance, policy analysis, and advanced statistics.</p>
-            <p>Today I work at the Riverside County Office of Education, where I manage data infrastructure and accountability reporting across 23 school districts serving about 420,000 students. I build automated accountability reports that are available to every LEA in California, maintain public Tableau dashboards that inform district decision-making, and navigate data sharing partnerships with other state agencies and higher education institutions, such as the CSU system and the State Treasurer&rsquo;s Office through CalKIDS. The stack runs on Python, R, SQL, Kubernetes, Airflow, dbt, Tableau, and Shiny &mdash; but the real work begins once data is in the hands of educators. Too often, we don&rsquo;t even get to that point &mdash; and that&rsquo;s where we come in. Providing timely, actionable data so that the experts in classrooms can do what they do best.</p>
-            <p>I was named RCOE&rsquo;s 2024 Classified Administrator of the Year. When I&rsquo;m not wrangling data pipelines or debugging container orchestration, I&rsquo;m usually at a conference somewhere making the case that public education agencies can modernize their data infrastructure without losing sight of the students at the center of every dataset.</p>
-        </div>
-    </section>
+<main>
 
-    <section id="work">
-        <div class="section-header">
-            <h2>Selected Work</h2>
-        </div>
-        <div class="section-body">
-            <div class="work-list">
-                <a href="https://public.tableau.com/app/profile/rcoe/viz/ParticipationRate_17127781575170/ParticipationRate2025byStudentGroup" class="work-item" target="_blank" rel="noopener noreferrer">
-                    <div class="work-screenshot">
-                        <img src="assets/partrate.png" alt="CAASPP/ELPAC Participation Rate Risk Report" loading="lazy">
-                    </div>
-                    <div class="work-detail">
-                        <h3>CAASPP/ELPAC Participation Rate Risk Report</h3>
-                        <p>Identifies student groups at risk of participation rate penalties on annual state assessments.</p>
-                        <span class="work-tool">Tableau</span>
-                    </div>
-                </a>
-                <a href="https://public.tableau.com/app/profile/rcoe/viz/CalkidsDashboard/CalKIDSResultsbyDistrict-Table" class="work-item" target="_blank" rel="noopener noreferrer">
-                    <div class="work-screenshot">
-                        <img src="assets/calkids.png" alt="CalKIDS Results by District" loading="lazy">
-                    </div>
-                    <div class="work-detail">
-                        <h3>CalKIDS Results by District</h3>
-                        <p>Monitors college savings account registration and claiming across 23 districts.</p>
-                        <span class="work-tool">Tableau</span>
-                    </div>
-                </a>
-                <a href="https://public.tableau.com/app/profile/rcoe/viz/CCIData/DistrictCCIbyYearbyStudentGroup" class="work-item" target="_blank" rel="noopener noreferrer">
-                    <div class="work-screenshot">
-                        <img src="assets/cci.png" alt="CCI Data: District CCI by Year" loading="lazy">
-                    </div>
-                    <div class="work-detail">
-                        <h3>CCI Data: District CCI by Year by Student Group</h3>
-                        <p>College/Career Indicator trends disaggregated by student group.</p>
-                        <span class="work-tool">Tableau</span>
-                    </div>
-                </a>
-                <a href="https://public.tableau.com/app/profile/rcoe/viz/LREBG/LREBG-ELA" class="work-item" target="_blank" rel="noopener noreferrer">
-                    <div class="work-screenshot">
-                        <img src="assets/lrebg.png" alt="LREBG Needs Assessment Dashboard" loading="lazy">
-                    </div>
-                    <div class="work-detail">
-                        <h3>LREBG Needs Assessment Dashboard</h3>
-                        <p>Learning Recovery Emergency Block Grant needs assessment for targeted student groups.</p>
-                        <span class="work-tool">Tableau</span>
-                    </div>
-                </a>
-                <a href="https://riverside.shinyapps.io/CSI-ATSI-2025/" class="work-item" target="_blank" rel="noopener noreferrer">
-                    <div class="work-screenshot">
-                        <img src="assets/csiatsi.png" alt="CSI-ATSI School Identification Report" loading="lazy">
-                    </div>
-                    <div class="work-detail">
-                        <h3>CSI-ATSI School Identification Report</h3>
-                        <p>Annually updated school identification tool based on California Dashboard business rules. Running since 2018.</p>
-                        <span class="work-tool">R / Shiny</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+<section id="about">
+  <div class="container">
+    <div class="section-cap">
+      <span class="section-num num">01.</span>
+      <h2 class="section-name">About</h2>
+    </div>
+    <div class="about-body">
+      <p>My coworkers and I run student data operations at the Riverside County Office of Education. Twenty-three districts, about 420,000 students, partnerships with CCGI, the National Student Clearinghouse, the CSU system, and the State Treasurer's Office. The day-to-day: building the on-premises warehouse (RHEL 9, Kubernetes, Airflow, dbt, Tableau with row-level security), running the integration pipeline behind CalKIDS, and negotiating the data-sharing agreements that make these projects — and more — work for our schools. In addition, I've developed the systems and processes that make CSU Direct Admissions work for every high school in the county.</p>
+      <p>I came in through teaching — seven years directing high-school bands, then five running Title I monitoring and district curriculum-and-assessment programs before landing in this office. The same instinct that made me want to corral a hundred high schoolers into straight lines on a football field in Riverside heat now wants to provide structure and order to a fractured data landscape. I have an Ed.D. in Education Leadership and Policy from UCLA; my dissertation looked at how administrator behaviors shape whether teachers actually use the data they're given.</p>
+      <p>RCOE named me <strong>Classified Administrator of the Year</strong> in 2024. When I'm not at the office, I might be ferrying kids to soccer while keeping up with the latest hot thing in the modern data stack. Iceberg here I come.</p>
+    </div>
+  </div>
+</section>
 
-    <section id="presentations">
-        <div class="section-header">
-            <h2>Recent Presentations</h2>
-        </div>
-        <div class="section-body">
-            <div class="featured-video">
-                <h3 class="featured-video-label">CSIS Statewide Data Governance Academy (2025)</h3>
-                <p class="featured-video-desc">Sharing RCOE&rsquo;s data collaboration journey &mdash; from National Student Clearinghouse partnerships to statewide Dashboard Estimates.</p>
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Lcjb6JlE1T0?si=VEwFHwkYfGk11Wge&amp;clip=UgkxIdkqLg2FKm7BwxDZNRa1DCoZDzmXWN5i&amp;clipt=ELSbDRjQ3BA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-                </div>
-            </div>
-            <div class="timeline">
-                <div class="timeline-entry">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="pres-head">
-                            <span class="pres-conf">CERA 2025</span>
-                            <span class="pres-where">November 2025, Riverside, CA</span>
-                            <span class="pres-badge">Co-Presenter</span>
-                        </div>
-                        <p class="pres-title">&ldquo;Trust, Transfer, Transform: The Role of Data Agreements in Scaling Student Impact&rdquo;</p>
-                        <p class="pres-desc">Co-presented with RCOE, CSU Chancellor&rsquo;s Office, and CalKIDS Institute (UCLA) on building county-led data-sharing partnerships.</p>
-                    </div>
-                </div>
-                <div class="timeline-entry">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="pres-head">
-                            <span class="pres-conf">CERA 2025</span>
-                            <span class="pres-where">November 2025, Riverside, CA</span>
-                            <span class="pres-badge">Co-Presenter</span>
-                        </div>
-                        <p class="pres-title">&ldquo;From Shiny to Strategic: Choosing Data Tools That Empower Educators and Align with Real-World Practice&rdquo;</p>
-                        <p class="pres-desc">Co-presented with CCEE, SDCOE, and SBCSS on a framework for evaluating and selecting data platforms across six decision-making domains.</p>
-                    </div>
-                </div>
-                <div class="timeline-entry">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="pres-head">
-                            <span class="pres-conf">CISC 2025</span>
-                            <span class="pres-where">February 2025, Anaheim, CA</span>
-                            <span class="pres-badge badge-alt">Panelist</span>
-                        </div>
-                        <p class="pres-title">&ldquo;Unlocking Student Data to Close Equity Gaps&rdquo;</p>
-                        <p class="pres-desc">Panelist alongside San Diego COE and USC Rossier EdPolicy Hub on interoperable data standards and real-time APIs for equity-focused decision-making.</p>
-                    </div>
-                </div>
-                <div class="timeline-entry">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="pres-head">
-                            <span class="pres-conf">PyCon 2024 Education Summit</span>
-                            <span class="pres-where">May 2024, Pittsburgh, PA</span>
-                            <span class="pres-badge badge-alt">Lightning Talk</span>
-                        </div>
-                        <p class="pres-title">&ldquo;LocalGPT for Student Voice while Respecting Student Privacy&rdquo;</p>
-                        <p class="pres-desc">Demonstrated locally-hosted LLMs (Meta-Llama 3) for analyzing student focus group transcripts while maintaining FERPA compliance.</p>
-                    </div>
-                </div>
-                <div class="timeline-entry">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="pres-head">
-                            <span class="pres-conf">CISC 2024</span>
-                            <span class="pres-where">February 2024, Monterey, CA</span>
-                            <span class="pres-badge">Co-Presenter</span>
-                        </div>
-                        <p class="pres-title">&ldquo;Sharing is Caring: How Data-Sharing Supports Student Success&rdquo;</p>
-                        <p class="pres-desc">Co-presented with RCOE on leveraging county-level data sharing within California&rsquo;s System of Support.</p>
-                    </div>
-                </div>
-                <div class="timeline-entry">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="pres-head">
-                            <span class="pres-conf">CERA 2022</span>
-                            <span class="pres-where">September 2022, Anaheim, CA</span>
-                            <span class="pres-badge">Co-Presenter</span>
-                        </div>
-                        <p class="pres-title">&ldquo;Diagnosing System Inequities Through Transcript Analysis and the Measuring Student Learning Project&rdquo;</p>
-                        <p class="pres-desc">Co-presented with RCOE on using transcript analysis and grade distribution data to identify system-level inequities across Riverside County.</p>
-                    </div>
-                </div>
-            </div>
-            <p class="pres-more"><a href="assets/cv.pdf">View full CV for complete list &rarr;</a></p>
-        </div>
-    </section>
+<section id="work" class="bg-alt">
+  <div class="container">
+    <div class="section-cap">
+      <span class="section-num num">02.</span>
+      <h2 class="section-name">Selected work</h2>
+    </div>
+    <div class="work-list">
 
-    <section id="cv">
-        <div class="section-header">
-            <h2>Curriculum Vitae</h2>
+      <a href="https://public.tableau.com/app/profile/rcoe/viz/ParticipationRate_17127781575170/ParticipationRate2025byStudentGroup" class="work-item" target="_blank" rel="noopener noreferrer">
+        <img class="work-thumb" src="assets/partrate.png" alt="CAASPP/ELPAC Participation Rate Risk Report" loading="lazy" />
+        <div class="work-text">
+          <span class="work-tool">Tableau · annually updated</span>
+          <h3 class="work-title">CAASPP/ELPAC Participation Rate Risk Report</h3>
+          <p class="work-desc">Identifies student groups at risk of participation-rate penalties on annual state assessments.</p>
         </div>
-        <div class="section-body cv-body">
-            <p>Full CV available for download.</p>
-            <a href="assets/cv.pdf" class="cv-link" download>
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download CV (PDF)
-            </a>
+        <svg class="work-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 10h10M11 5l5 5-5 5"/></svg>
+      </a>
+
+      <a href="https://public.tableau.com/app/profile/rcoe/viz/CalkidsDashboard/CalKIDSResultsbyDistrict-Table" class="work-item" target="_blank" rel="noopener noreferrer">
+        <img class="work-thumb" src="assets/calkids.png" alt="CalKIDS Results by District" loading="lazy" />
+        <div class="work-text">
+          <span class="work-tool">Tableau · annually updated</span>
+          <h3 class="work-title">CalKIDS Results by District</h3>
+          <p class="work-desc">Monitors college-savings account registration and claiming across 23 districts.</p>
         </div>
-    </section>
+        <svg class="work-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 10h10M11 5l5 5-5 5"/></svg>
+      </a>
 
-    <footer class="footer">
-        <div class="footer-inner">
-            <span>Nicholas R. Chitwood, Ed.D.</span>
-            <span>Riverside, California</span>
-            <a href="mailto:nicholaschitwood@gmail.com">nicholaschitwood@gmail.com</a>
+      <a href="https://public.tableau.com/app/profile/rcoe/viz/CCIData/DistrictCCIbyYearbyStudentGroup" class="work-item" target="_blank" rel="noopener noreferrer">
+        <img class="work-thumb" src="assets/cci.png" alt="CCI Data: District CCI by Year" loading="lazy" />
+        <div class="work-text">
+          <span class="work-tool">Tableau · annually updated</span>
+          <h3 class="work-title">CCI Data: District CCI by Year by Student Group</h3>
+          <p class="work-desc">College &amp; Career Indicator trends disaggregated by student group.</p>
         </div>
-    </footer>
+        <svg class="work-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 10h10M11 5l5 5-5 5"/></svg>
+      </a>
 
-    <script>
-        const nav = document.getElementById('nav');
-        const hero = document.getElementById('hero');
-        const observer = new IntersectionObserver(
-            ([entry]) => nav.classList.toggle('nav-scrolled', !entry.isIntersecting),
-            { threshold: 0.05 }
-        );
-        observer.observe(hero);
+      <a href="https://public.tableau.com/app/profile/rcoe/viz/LREBG/LREBG-ELA" class="work-item" target="_blank" rel="noopener noreferrer">
+        <img class="work-thumb" src="assets/lrebg.png" alt="LREBG Needs Assessment Dashboard" loading="lazy" />
+        <div class="work-text">
+          <span class="work-tool">Tableau · annually updated</span>
+          <h3 class="work-title">LREBG Needs Assessment Dashboard</h3>
+          <p class="work-desc">Learning Recovery Emergency Block Grant needs assessment for targeted student groups.</p>
+        </div>
+        <svg class="work-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 10h10M11 5l5 5-5 5"/></svg>
+      </a>
 
-        // Parallax on hero dot grid
-        const heroBg = document.querySelector('.hero');
-        window.addEventListener('scroll', () => {
-            if (heroBg) {
-                heroBg.style.setProperty('--scroll-y', window.scrollY * 0.5 + 'px');
-            }
-        }, { passive: true });
+      <a href="https://riverside.shinyapps.io/CSI-ATSI-2025/" class="work-item" target="_blank" rel="noopener noreferrer">
+        <img class="work-thumb" src="assets/csiatsi.png" alt="CSI-ATSI School Identification Report" loading="lazy" />
+        <div class="work-text">
+          <span class="work-tool">R / Shiny · since 2018</span>
+          <h3 class="work-title">CSI-ATSI School Identification Report</h3>
+          <p class="work-desc">Annually updated school-identification tool based on California Dashboard business rules.</p>
+        </div>
+        <svg class="work-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 10h10M11 5l5 5-5 5"/></svg>
+      </a>
 
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                const t = document.querySelector(a.getAttribute('href'));
-                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-    </script>
+    </div>
+  </div>
+</section>
+
+<section id="presentations">
+  <div class="container">
+    <div class="section-cap">
+      <span class="section-num num">03.</span>
+      <h2 class="section-name">Recent presentations</h2>
+    </div>
+
+    <article class="featured">
+      <div class="featured-head">
+        <span class="featured-eyebrow eyebrow">Featured · 2025</span>
+        <h3 class="featured-title">CSIS Statewide Data Governance Academy</h3>
+        <p class="featured-desc">RCOE's data-collaboration journey — from National Student Clearinghouse partnerships to statewide Dashboard Estimates.</p>
+      </div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/Lcjb6JlE1T0?si=VEwFHwkYfGk11Wge&amp;clip=UgkxIdkqLg2FKm7BwxDZNRa1DCoZDzmXWN5i&amp;clipt=ELSbDRjQ3BA" title="AACI Data Governance Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <div class="talks">
+
+      <div class="talk">
+        <div class="talk-date">
+          <span class="talk-conf">CERA 2025</span>
+          <span class="talk-where">Nov 2025 · Riverside, CA</span>
+        </div>
+        <div class="talk-body">
+          <h3 class="talk-title">Trust, Transfer, Transform: The Role of Data Agreements in Scaling Student Impact</h3>
+          <p class="talk-desc">Co-presented with RCOE, CSU Chancellor's Office, and CalKIDS Institute (UCLA) on building county-led data-sharing partnerships.</p>
+        </div>
+        <span class="talk-role">Co-presenter</span>
+      </div>
+
+      <div class="talk">
+        <div class="talk-date">
+          <span class="talk-conf">CERA 2025</span>
+          <span class="talk-where">Nov 2025 · Riverside, CA</span>
+        </div>
+        <div class="talk-body">
+          <h3 class="talk-title">From Shiny to Strategic: Choosing Data Tools That Empower Educators</h3>
+          <p class="talk-desc">Co-presented with CCEE, SDCOE, and SBCSS on a framework for evaluating and selecting data platforms across six decision-making domains.</p>
+        </div>
+        <span class="talk-role">Co-presenter</span>
+      </div>
+
+      <div class="talk">
+        <div class="talk-date">
+          <span class="talk-conf">CISC 2025</span>
+          <span class="talk-where">Feb 2025 · Anaheim, CA</span>
+        </div>
+        <div class="talk-body">
+          <h3 class="talk-title">Unlocking Student Data to Close Equity Gaps</h3>
+          <p class="talk-desc">Panelist alongside San Diego COE and USC Rossier EdPolicy Hub on interoperable data standards and real-time APIs for equity-focused decision-making.</p>
+        </div>
+        <span class="talk-role">Panelist</span>
+      </div>
+
+      <div class="talk">
+        <div class="talk-date">
+          <span class="talk-conf">PyCon 2024</span>
+          <span class="talk-where">May 2024 · Pittsburgh, PA</span>
+        </div>
+        <div class="talk-body">
+          <h3 class="talk-title">LocalGPT for Student Voice while Respecting Student Privacy</h3>
+          <p class="talk-desc">Demonstrated locally-hosted LLMs (Meta-Llama 3) for analyzing student focus-group transcripts while maintaining FERPA compliance.</p>
+        </div>
+        <span class="talk-role">Lightning talk</span>
+      </div>
+
+      <div class="talk">
+        <div class="talk-date">
+          <span class="talk-conf">CISC 2024</span>
+          <span class="talk-where">Feb 2024 · Monterey, CA</span>
+        </div>
+        <div class="talk-body">
+          <h3 class="talk-title">Sharing is Caring: How Data-Sharing Supports Student Success</h3>
+          <p class="talk-desc">Co-presented with RCOE on leveraging county-level data sharing within California's System of Support.</p>
+        </div>
+        <span class="talk-role">Co-presenter</span>
+      </div>
+
+      <div class="talk">
+        <div class="talk-date">
+          <span class="talk-conf">CERA 2022</span>
+          <span class="talk-where">Sep 2022 · Anaheim, CA</span>
+        </div>
+        <div class="talk-body">
+          <h3 class="talk-title">Diagnosing System Inequities Through Transcript Analysis</h3>
+          <p class="talk-desc">Co-presented with RCOE on using transcript analysis and grade-distribution data to identify system-level inequities across Riverside County.</p>
+        </div>
+        <span class="talk-role">Co-presenter</span>
+      </div>
+
+    </div>
+
+    <p class="talks-foot"><a href="#cv">View the full CV for the complete list of presentations and publications →</a></p>
+  </div>
+</section>
+
+<section id="cv" class="bg-alt">
+  <div class="container">
+    <div class="section-cap">
+      <span class="section-num num">04.</span>
+      <h2 class="section-name">Curriculum vitae</h2>
+    </div>
+    <div class="cv-row">
+      <div class="cv-body">
+        <p>Six pages, set in Inter Tight. Updated <span class="num">May&nbsp;2026</span>.</p>
+      </div>
+      <a class="cv-button" href="assets/cv.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        Download CV (PDF)
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="footer-mark">Nicholas R. Chitwood<span class="period">.</span></span>
+    <span>Riverside, California</span>
+    <a href="mailto:nicholaschitwood@gmail.com">nicholaschitwood@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  // Sticky-nav border state: appears when the user is past the hero.
+  // No backdrop-blur, no opacity fade. Just a hairline rule + paper bg.
+  (function () {
+    const nav = document.getElementById('nav');
+    const hero = document.querySelector('.hero');
+    if (!nav || !hero) return;
+    const io = new IntersectionObserver(([e]) => {
+      nav.classList.toggle('is-scrolled', !e.isIntersecting);
+    }, { threshold: 0.04 });
+    io.observe(hero);
+  })();
+
+  // Anchor links — smooth-scroll handled by CSS; keep the # in the URL.
+</script>
 
 </body>
 </html>
